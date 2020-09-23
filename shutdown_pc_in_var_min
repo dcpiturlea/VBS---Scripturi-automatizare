@@ -4,7 +4,6 @@ Dim strShutdown, strAbort
 Dim sInput
 sInput = InputBox("In cate minute vrei sa se opreasca PC-ul")
 sInput = sInput * 60
-msgbox  sInput 
 
 ' -s = shutdown, -t 120 = 2 minutes, -f = force programs to close
 strShutdown = "shutdown.exe -s -t " & sInput & " -f"
