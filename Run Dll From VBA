@@ -1,0 +1,11 @@
+Public Sub RunDllCSharpApplication(strDllPath As String, strDllName As String)
+
+    Dim objShell, intShutdown
+    Dim strAbort
+    
+    strDllName = "dotnet " & strDllName
+    
+    Set objShell = CreateObject("WScript.Shell")
+    objShell.CurrentDirectory = strDllPath
+    objShell.Run strDllName
+End Sub
