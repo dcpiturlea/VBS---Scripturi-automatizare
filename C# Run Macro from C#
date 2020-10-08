@@ -1,0 +1,25 @@
+       using Microsoft.Office.Interop.Excel;
+       
+       public static void RunMacro(string excelSourceFileFullPath)
+        {
+
+            static string macroArg1 = "";
+            static string macroArg2 = ";
+            static string macroName = "";
+
+
+            Application ExcelApp = new Application();
+            ExcelApp.DisplayAlerts = false;
+
+            object misValue = System.Reflection.Missing.Value;
+            ExcelApp.Visible = false;
+
+            Workbook ExcelWorkBook = ExcelApp.Workbooks.Open(excelSourceFileFullPath);
+
+            ExcelApp.Run(macroName, macroArg1, macroArg2);
+            ExcelApp.Quit();
+
+
+            if (ExcelWorkBook != null) { System.Runtime.InteropServices.Marshal.ReleaseComObject(ExcelWorkBook); }
+            if (ExcelApp != null) { System.Runtime.InteropServices.Marshal.ReleaseComObject(ExcelApp); }
+        }
